@@ -337,7 +337,12 @@
     }
 
     // Cleanup on page unload to prevent memory leaks
-    window.addEventListener("pagehide", cleanup, { once: true });
+    // We only cleanup if the page is NOT being cached (bfcache)
+    window.addEventListener("pagehide", (event) => {
+      if (!event.persisted) {
+        cleanup();
+      }
+    });
   }
 
   // Run when DOM is ready
