@@ -337,7 +337,7 @@
     }
 
     // Cleanup on page unload to prevent memory leaks
-    window.addEventListener("unload", cleanup, { once: true });
+    window.addEventListener("pagehide", cleanup, { once: true });
   }
 
   // Run when DOM is ready
