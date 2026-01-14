@@ -12,7 +12,7 @@ Thanks for downloading M-Dash Detector! Follow the steps below to install the ex
 const FOOTER = `
 ---
 
-For more information, visit the [GitHub repository](https://github.com/mofalkmusic/chrome_extension_mdash).
+For more information, visit the [GitHub repository](https://github.com/mofalkmusic/m-dash-detector-chrome-extension).
 `;
 
 async function buildInstallReadme() {
