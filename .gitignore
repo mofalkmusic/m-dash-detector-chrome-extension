@@ -2,3 +2,5 @@ node_modules/
 dist/
 *.zip
 bun.lock
+mdash-detector-clean.zip
+mdash-detector.zip

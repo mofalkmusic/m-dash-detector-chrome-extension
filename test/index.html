@@ -110,9 +110,78 @@
         background: #0f3460;
         color: #e0e0e0;
       }
+
+      /* Thumbnail Section Styles */
+      .thumbnail-section {
+        max-width: 1200px;
+        margin: 0 auto 40px;
+        padding: 24px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+      }
+      .thumbnail-section h2 {
+        text-align: center;
+        color: white;
+        margin-bottom: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+      .thumbnail-container {
+        display: flex;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+      .thumbnail-panel {
+        flex: 1;
+        padding: 48px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .thumbnail-panel.light {
+        background: #ffffff;
+      }
+      .thumbnail-panel.dark {
+        background: #1a1a2e;
+      }
+      .thumbnail-text {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        max-width: 320px;
+      }
+      .thumbnail-panel.light .thumbnail-text {
+        color: #2d2d2d;
+      }
+      .thumbnail-panel.dark .thumbnail-text {
+        color: #e8e8e8;
+      }
     </style>
   </head>
   <body>
+    <!-- Thumbnail Section for Chrome Web Store -->
+    <section class="thumbnail-section">
+      <h2>M-Dash Detector</h2>
+      <div class="thumbnail-container">
+        <div class="thumbnail-panel light">
+          <p class="thumbnail-text">
+            Great writing—enhanced by clarity—stands out instantly.
+          </p>
+        </div>
+        <div class="thumbnail-panel dark">
+          <p class="thumbnail-text">
+            Great writing—enhanced by clarity—stands out instantly.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <div class="sections-wrapper">
     <div class="container">
       <h1>🔍 M-Dash Extension Test Page</h1>
