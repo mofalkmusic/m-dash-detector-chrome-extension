@@ -55,6 +55,10 @@ bun run build
 bun run dev
 ```
 
+## Support
+
+If you like this extension, please consider leaving a star ⭐ on GitHub. Thank you!
+
 ---
 
 _Made to help you stay aware of AI-generated content._
