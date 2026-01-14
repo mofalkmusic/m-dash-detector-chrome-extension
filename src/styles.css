@@ -1,0 +1,97 @@
+@keyframes sparkle-anim {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -40px; }
+}
+
+.mdash-highlight {
+  /* Animated Sparkle Background - SVG injected via #mdash-sparkle-svg */
+  background-color: transparent;
+  background-image: var(--mdash-sparkle-bg);
+  background-size: 40px 40px;
+  animation: sparkle-anim 3s linear infinite;
+  
+  border-radius: 2px;
+  padding: 0 2px;
+  margin: 0;
+  display: inline-block;
+
+  --_color: rgb(255, 196, 0);
+
+  color: black;
+
+  text-shadow: 2px 2px 0px var(--_color), -2px 2px 0px var(--_color), 2px -2px 0px var(--_color), -2px -2px 0px var(--_color), -2px -1px 0px var(--_color), -2px 0px 0px var(--_color), -2px 1px 0px var(--_color), 2px -1px 0px var(--_color), 2px 0px 0px var(--_color), 2px 1px 0px var(--_color);
+}
+
+/* Warning banner at top of page */
+.mdash-warning-banner {
+  position: fixed;
+  top: 0;
+  /* "2/3 to the way right" -> centered around 66% or starting there. 
+     Let's try right: 25% to account for width, making it roughly 2/3rds across. */
+  right: 20%; 
+  left: auto;
+  
+  /* Fixed gradient background allows pseudo-elements to blend seamlessly */
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%) fixed;
+  
+  color: white;
+  padding: 1px 7px; /* Smaller padding */
+  
+  /* Rounded bottom corners only */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px; /* Smaller text */
+  font-weight: 500;
+  z-index: 2147483647;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  
+  /* Non-interactive */
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Inverted corner (fillet) on the left */
+.mdash-warning-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -8px; /* Width of the curve */
+  width: 8px;
+  height: 8px;
+  background: inherit; /* Inherits the fixed gradient */
+  /* Shape: Top-Right triangle with OUTWARD curve (flare)
+     Start 0,0. Curve to 8,8. Control 8,0 (Top Right corner).
+     Closes via 8,0 (Top Right) to complete the fill. */
+  clip-path: path('M 0 0 Q 8 0 8 8 L 8 0 Z');
+}
+
+/* Inverted corner (fillet) on the right */
+.mdash-warning-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+  /* Shape: Top-Left triangle with OUTWARD curve (flare)
+     Start 8,0. Curve to 0,8. Control 0,0 (Top Left corner).
+     Closes via 0,0 (Top Left) to complete the fill. */
+  clip-path: path('M 8 0 Q 0 0 0 8 L 0 0 Z');
+}
+
+.mdash-warning-count {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0px 5px;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: 600;
+}

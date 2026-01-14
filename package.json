@@ -1,0 +1,23 @@
+{
+  "name": "mdash-detector",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run build:ts && bun run build:assets && bun run build:install-readme && bun run zip",
+    "build:ts": "bun build src/content.ts --outdir dist --target browser",
+    "build:assets": "bun run scripts/copy-assets.ts",
+    "watch": "bun build src/content.ts --outdir dist --target browser --watch",
+    "dev": "run-p watch dev:serve",
+    "dev:serve": "bun run scripts/serve.ts",
+    "typecheck": "tsc --noEmit",
+    "build:install-readme": "bun run scripts/build-install-readme.ts",
+    "zip": "powershell -Command \"Copy-Item -Path dist -Destination mdash-detector -Recurse -Force; Compress-Archive -Path mdash-detector,INSTALLATION_HELP.txt -DestinationPath mdash-detector.zip -Force; Remove-Item -Path mdash-detector -Recurse -Force; Remove-Item -Path INSTALLATION_HELP.txt -Force\""
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.5",
+    "@types/chrome": "^0.0.287",
+    "npm-run-all2": "^8.0.4",
+    "typescript": "^5.7.3"
+  }
+}
